@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Products from "@/components/Products";
 import About from "@/components/About";
 import CommunityStories from "@/components/CommunityStories";
+import Locations from "@/components/Locations";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import { TribalBand } from "@/components/TribalPatterns";
@@ -18,6 +19,8 @@ const Index = () => {
         <TribalBand />
         <About />
         <CommunityStories />
+        <TribalBand />
+        <Locations />
         <TribalBand />
         <CTA />
       </main>
