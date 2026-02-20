@@ -3,7 +3,7 @@ import {
   Landmark, CreditCard, Smartphone, Sprout, GraduationCap, Car,
   Fish, Sun, Wallet, PiggyBank, BadgeDollarSign, Building,
 } from "lucide-react";
-import { TribalDivider, TapaStripe } from "./TribalPatterns";
+import { TribalDivider, TapaStripe, KunduPattern } from "./TribalPatterns";
 
 const products = [
   { icon: Building, title: "Business Loan", desc: "Grow your small or medium business with affordable financing." },
@@ -36,8 +36,9 @@ const cardVariants = {
 const Products = () => {
   return (
     <section id="products" className="py-20 lg:py-28 bg-muted/50 relative overflow-hidden">
-      {/* Tapa cloth accent strip at top */}
       <TapaStripe className="absolute top-0 left-0 w-full h-8 text-primary" />
+      <KunduPattern className="absolute bottom-10 -left-8 w-24 h-36 text-primary/8 pointer-events-none hidden lg:block" />
+      <KunduPattern className="absolute top-20 -right-8 w-20 h-30 text-primary/6 pointer-events-none hidden lg:block rotate-12" />
 
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
@@ -65,12 +66,13 @@ const Products = () => {
           viewport={{ once: true, margin: "-80px" }}
           style={{ perspective: 1000 }}
         >
-          {products.map((product) => (
+          {products.map((product, i) => (
             <motion.div
               key={product.title}
               variants={cardVariants}
               whileHover={{
                 y: -8,
+                rotateY: 3,
                 boxShadow: "0 20px 40px -12px hsl(48 100% 50% / 0.15)",
                 borderColor: "hsl(48 100% 50% / 0.4)",
               }}
@@ -83,6 +85,11 @@ const Products = () => {
                 <path d="M48 8 L48 40 L8 0" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.5" />
               </svg>
 
+              {/* Bottom diamond watermark */}
+              <svg className="absolute bottom-2 right-2 w-10 h-10 text-primary/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" viewBox="0 0 40 40" aria-hidden="true">
+                <path d="M20 2 L38 20 L20 38 L2 20 Z" fill="currentColor" />
+              </svg>
+
               <motion.div
                 className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center mb-4"
                 whileHover={{ rotate: 5, scale: 1.15 }}
@@ -92,6 +99,14 @@ const Products = () => {
               </motion.div>
               <h3 className="font-bold text-foreground mb-2">{product.title}</h3>
               <p className="text-sm text-muted-foreground">{product.desc}</p>
+
+              {/* Hover line accent */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 bg-gradient-gold"
+                initial={{ width: "0%" }}
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.div>
           ))}
         </motion.div>

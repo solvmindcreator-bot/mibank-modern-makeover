@@ -1,18 +1,32 @@
 import { motion } from "framer-motion";
 import { Phone, ArrowRight } from "lucide-react";
-import { BilumPattern, ShieldMotif } from "./TribalPatterns";
+import { BilumPattern, ShieldMotif, KunduPattern } from "./TribalPatterns";
+
+const floatingDiamond = {
+  animate: {
+    y: [0, -12, 0],
+    rotate: [0, 45, 0],
+    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const },
+  },
+};
 
 const CTA = () => {
   return (
     <section className="py-20 bg-gradient-hero relative overflow-hidden">
-      {/* Tribal background textures */}
       <BilumPattern className="absolute top-0 left-0 w-full h-full text-primary opacity-10 pointer-events-none" />
       <ShieldMotif className="absolute top-8 right-[10%] w-20 h-24 text-secondary-foreground/10 animate-float pointer-events-none hidden lg:block" />
-      <div className="absolute bottom-8 left-[8%] w-16 h-20 animate-float pointer-events-none hidden lg:block" style={{ animationDelay: "1.5s" }}>
-        <ShieldMotif className="w-full h-full text-primary/15" />
+      <div className="absolute bottom-4 left-[5%] animate-float pointer-events-none hidden lg:block" style={{ animationDelay: "2s" }}>
+        <KunduPattern className="w-16 h-24 text-primary/10" />
       </div>
 
-      {/* Gold accent line */}
+      {/* Floating diamonds */}
+      <motion.svg className="absolute top-1/4 left-[15%] w-8 h-8 text-primary/15 pointer-events-none hidden lg:block" viewBox="0 0 32 32" aria-hidden="true" {...floatingDiamond}>
+        <path d="M16 2 L30 16 L16 30 L2 16 Z" fill="currentColor" />
+      </motion.svg>
+      <motion.svg className="absolute bottom-1/4 right-[12%] w-6 h-6 text-primary/20 pointer-events-none hidden lg:block" viewBox="0 0 24 24" aria-hidden="true" animate={{ y: [0, -8, 0], rotate: [0, -30, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+        <path d="M12 2 L22 12 L12 22 L2 12 Z" fill="currentColor" />
+      </motion.svg>
+
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-gold" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
