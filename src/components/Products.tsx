@@ -17,7 +17,7 @@ const products = [
   { icon: Sun, title: "Sola Pawa Loans", desc: "Go solar with affordable clean energy financing." },
   { icon: BadgeDollarSign, title: "Term Deposits", desc: "Earn competitive interest on your savings." },
   { icon: Car, title: "Vehicle Loan", desc: "Drive your dream vehicle with flexible repayments." },
-  { icon: CreditCard, title: "MiCard", desc: "Convenient debit card for everyday purchases." },
+  { icon: CreditCard, title: "MiCard", desc: "Convenient debit card for everyday purchases.", link: "/micard" },
   { icon: Landmark, title: "Hibiscus Card", desc: "Empowering women through dedicated financial services.", link: "/hibiscus-card" },
 ];
 
