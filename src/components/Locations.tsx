@@ -23,8 +23,7 @@ const branches = [
 
 const Locations = () => {
   // Build Google Maps embed URL with markers for all branches
-  const mapCenter = "-6.5,147.0";
-  const mapSrc = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5000000!2d147.0!3d-6.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f5!5e0!3m2!1sen!2spg!4v1700000000000!5m2!1sen!2spg`;
+  const mapSrc = "https://www.mibank.com.pg/map_points/MiBankSites.html";
 
   return (
     <section id="locations" className="py-20 lg:py-28 bg-muted/30 relative overflow-hidden">
@@ -70,7 +69,7 @@ const Locations = () => {
           <iframe
             src={mapSrc}
             width="100%"
-            height="500"
+            height="550"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
@@ -78,6 +77,21 @@ const Locations = () => {
             title="MiBank Locations across Papua New Guinea"
             className="w-full"
           />
+          {/* Legend */}
+          <div className="absolute bottom-4 left-4 bg-card/90 backdrop-blur-sm rounded-lg px-4 py-2.5 flex items-center gap-5 text-xs font-semibold border border-border shadow-md z-10">
+            <div className="flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-gold flex items-center justify-center text-[8px] font-black text-charcoal">Mi</span>
+              <span className="text-foreground">Branches</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-gold flex items-center justify-center text-[10px] font-black text-charcoal">A</span>
+              <span className="text-foreground">Agents</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-5 h-5 rounded-full bg-muted-foreground flex items-center justify-center text-[10px] font-black text-white">T</span>
+              <span className="text-foreground">Training</span>
+            </div>
+          </div>
         </motion.div>
 
         {/* Branch cards grid */}

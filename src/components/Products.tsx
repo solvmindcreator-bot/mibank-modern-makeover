@@ -6,13 +6,13 @@ import {
 import { TribalDivider, TapaStripe, KunduPattern } from "./TribalPatterns";
 
 const products = [
-  { icon: Building, title: "Business Loan", desc: "Grow your small or medium business with affordable financing." },
+  { icon: Building, title: "Business Loan", desc: "Grow your small or medium business with affordable financing.", featured: false },
   { icon: Fish, title: "Fisheries Loan", desc: "Dedicated funding for PNG's fishing industry." },
   { icon: Sprout, title: "Farmers Loan", desc: "Support for agriculture and farming communities." },
   { icon: Smartphone, title: "MiCash", desc: "PNG's first mobile wallet — bank from your phone." },
   { icon: Wallet, title: "MiLoan", desc: "Quick personal loans when you need them most." },
   { icon: PiggyBank, title: "MiPikinini", desc: "Savings accounts designed for your children's future." },
-  { icon: GraduationCap, title: "School Fee Loan", desc: "Keep your kids in school with easy fee financing." },
+  { icon: GraduationCap, title: "School Fee Loan", desc: "Spread tuition costs over fortnightly salary deductions — affordable education financing.", featured: true },
   { icon: Sun, title: "Sola Pawa Loans", desc: "Go solar with affordable clean energy financing." },
   { icon: BadgeDollarSign, title: "Term Deposits", desc: "Earn competitive interest on your savings." },
   { icon: Car, title: "Vehicle Loan", desc: "Drive your dream vehicle with flexible repayments." },
@@ -77,7 +77,7 @@ const Products = () => {
                 borderColor: "hsl(48 100% 50% / 0.4)",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group bg-card rounded-xl p-6 shadow-card border border-border/50 cursor-pointer relative overflow-hidden"
+              className={`group bg-card rounded-xl p-6 shadow-card border cursor-pointer relative overflow-hidden ${product.featured ? 'border-gold/50 ring-1 ring-gold/20' : 'border-border/50'}`}
             >
               {/* Tribal corner accent */}
               <svg className="absolute top-0 right-0 w-12 h-12 text-primary/10 pointer-events-none" viewBox="0 0 48 48" aria-hidden="true">
