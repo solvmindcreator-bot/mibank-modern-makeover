@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 import { TribalDivider, TapaStripe, KunduPattern } from "./TribalPatterns";
 
 const products = [
-  { icon: Building, title: "Business Loan", desc: "Grow your small or medium business with affordable financing.", featured: false },
-  { icon: Fish, title: "Fisheries Loan", desc: "Dedicated funding for PNG's fishing industry." },
-  { icon: Sprout, title: "Farmers Loan", desc: "Support for agriculture and farming communities." },
-  { icon: Smartphone, title: "MiCash", desc: "PNG's first mobile wallet — bank from your phone." },
-  { icon: Wallet, title: "MiLoan", desc: "Quick personal loans when you need them most." },
-  { icon: PiggyBank, title: "MiPikinini", desc: "Savings accounts designed for your children's future." },
-  { icon: GraduationCap, title: "School Fee Loan", desc: "Spread tuition costs over fortnightly salary deductions — affordable education financing.", featured: true },
-  { icon: Sun, title: "Sola Pawa Loans", desc: "Go solar with affordable clean energy financing." },
-  { icon: BadgeDollarSign, title: "Term Deposits", desc: "Earn competitive interest on your savings." },
-  { icon: Car, title: "Vehicle Loan", desc: "Drive your dream vehicle with flexible repayments." },
+  { icon: Building, title: "Business Loan", desc: "Grow your small or medium business with affordable financing.", link: "/business-loan" },
+  { icon: Fish, title: "Fisheries Loan", desc: "Dedicated funding for PNG's fishing industry.", link: "/fisheries-loan" },
+  { icon: Sprout, title: "Farmers Loan", desc: "Support for agriculture and farming communities.", link: "/farmers-loan" },
+  { icon: Smartphone, title: "MiCash", desc: "PNG's first mobile wallet — bank from your phone.", link: "/micash" },
+  { icon: Wallet, title: "MiLoan", desc: "Quick personal loans when you need them most.", link: "/miloan" },
+  { icon: PiggyBank, title: "MiPikinini", desc: "Savings accounts designed for your children's future.", link: "/mipikinini" },
+  { icon: GraduationCap, title: "School Fee Loan", desc: "Spread tuition costs over fortnightly salary deductions — affordable education financing.", featured: true, link: "/school-fee-loan" },
+  { icon: Sun, title: "Sola Pawa Loans", desc: "Go solar with affordable clean energy financing.", link: "/sola-pawa" },
+  { icon: BadgeDollarSign, title: "Term Deposits", desc: "Earn competitive interest on your savings.", link: "/term-deposits" },
+  { icon: Car, title: "Vehicle Loan", desc: "Drive your dream vehicle with flexible repayments.", link: "/vehicle-loan" },
   { icon: CreditCard, title: "MiCard", desc: "Convenient debit card for everyday purchases.", link: "/micard" },
   { icon: Landmark, title: "Hibiscus Card", desc: "Empowering women through dedicated financial services.", link: "/hibiscus-card" },
 ];
