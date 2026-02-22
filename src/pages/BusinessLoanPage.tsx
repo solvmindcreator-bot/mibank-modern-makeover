@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TribalBand } from "@/components/TribalPatterns";
+import heroImg from "@/assets/business-loan-hero.jpg";
 
 const benefits = [
   { icon: TrendingUp, title: "Business Growth", desc: "Access capital to expand your operations and reach new markets." },
@@ -16,18 +17,22 @@ const BusinessLoanPage = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <main>
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-primary/5 to-background relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 group">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="Business owner in PNG" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8 group">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Link>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 bg-gold/20 text-gold-dark rounded-full text-sm font-semibold mb-4">Business Loan</span>
-            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-foreground mb-6 leading-tight">
-              Grow Your <span className="text-gold-dark">Business</span> With Affordable Financing
+            <span className="inline-block px-4 py-1.5 bg-gold/20 text-gold rounded-full text-sm font-semibold mb-4">Business Loan</span>
+            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
+              Grow Your <span className="text-gold">Business</span> With Affordable Financing
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-white/80 mb-8">
               Whether you're a small enterprise or a growing SME, MiBank's Business Loan provides the capital you need to expand, invest in equipment, or manage working capital across Papua New Guinea.
             </p>
             <Link to="/#locations" className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow">

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TribalBand } from "@/components/TribalPatterns";
+import heroImg from "@/assets/fisheries-loan-hero.jpg";
 
 const benefits = [
   { icon: Ship, title: "Boat & Equipment", desc: "Finance vessels, engines, nets, and other essential fishing equipment." },
@@ -16,18 +17,22 @@ const FisheriesLoanPage = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <main>
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-blue-50 to-background relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 group">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="PNG fishermen on traditional boat" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8 group">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Link>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Fisheries Loan</span>
-            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-foreground mb-6 leading-tight">
-              Dedicated Funding for PNG's <span className="text-blue-600">Fishing Industry</span>
+            <span className="inline-block px-4 py-1.5 bg-blue-500/20 text-blue-200 rounded-full text-sm font-semibold mb-4">Fisheries Loan</span>
+            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
+              Dedicated Funding for PNG's <span className="text-gold">Fishing Industry</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-white/80 mb-8">
               MiBank's Fisheries Loan supports fishermen and fishing businesses across Papua New Guinea with affordable financing for boats, equipment, and operations.
             </p>
             <Link to="/#locations" className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow">
@@ -42,13 +47,13 @@ const FisheriesLoanPage = () => (
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-center mb-12 font-heading">
-            Why Choose <span className="text-blue-600">Fisheries Loan</span>?
+            Why Choose <span className="text-gold-dark">Fisheries Loan</span>?
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((f, i) => (
               <motion.div key={f.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }} whileHover={{ y: -6 }} className="bg-card rounded-xl p-6 border border-border shadow-card text-center">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                  <f.icon className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+                  <f.icon className="w-6 h-6 text-gold-dark" />
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                 <p className="text-sm text-muted-foreground">{f.desc}</p>
