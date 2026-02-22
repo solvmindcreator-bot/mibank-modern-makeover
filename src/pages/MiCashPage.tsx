@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TribalBand } from "@/components/TribalPatterns";
+import heroImg from "@/assets/micash-hero.jpg";
 
 const features = [
   { icon: Zap, title: "Instant Transfers", desc: "Send and receive money instantly from your mobile phone." },
@@ -16,18 +17,22 @@ const MiCashPage = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <main>
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-gradient-to-b from-primary/5 to-background relative overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 group">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroImg} alt="Mobile banking in PNG market" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/50 to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 lg:px-8 pt-32 pb-20 lg:pt-40 lg:pb-28">
+          <Link to="/" className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-8 group">
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Home
           </Link>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 bg-gold/20 text-gold-dark rounded-full text-sm font-semibold mb-4">MiCash</span>
-            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-foreground mb-6 leading-tight">
-              PNG's First <span className="text-gold-dark">Mobile Wallet</span> — Bank From Your Phone
+            <span className="inline-block px-4 py-1.5 bg-gold/20 text-gold rounded-full text-sm font-semibold mb-4">MiCash</span>
+            <h1 className="text-4xl lg:text-5xl font-bold font-heading text-white mb-6 leading-tight">
+              PNG's First <span className="text-gold">Mobile Wallet</span> — Bank From Your Phone
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-white/80 mb-8">
               MiCash is Papua New Guinea's pioneering mobile wallet service. Send money, pay bills, and manage your finances right from your mobile phone — no bank branch needed.
             </p>
             <Link to="/#locations" className="inline-flex items-center gap-2 bg-gradient-gold text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow">
