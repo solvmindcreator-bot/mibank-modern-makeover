@@ -17,6 +17,7 @@ import SolaPawaPage from "./pages/SolaPawaPage";
 import TermDepositsPage from "./pages/TermDepositsPage";
 import VehicleLoanPage from "./pages/VehicleLoanPage";
 import NotFound from "./pages/NotFound";
+import ConvoCoreChat from "./components/ConvoCoreChat";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <ConvoCoreChat />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
