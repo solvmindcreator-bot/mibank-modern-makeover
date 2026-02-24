@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   Landmark, CreditCard, Smartphone, Sprout, GraduationCap, Car,
-  Fish, Sun, Wallet, PiggyBank, BadgeDollarSign, Building,
+  Fish, Sun, Wallet, PiggyBank, BadgeDollarSign, Building, ArrowUpRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TribalDivider, TapaStripe, KunduPattern } from "./TribalPatterns";
@@ -13,7 +13,7 @@ const products = [
   { icon: Smartphone, title: "MiCash", desc: "PNG's first mobile wallet — bank from your phone.", link: "/micash" },
   { icon: Wallet, title: "MiLoan", desc: "Quick personal loans when you need them most.", link: "/miloan" },
   { icon: PiggyBank, title: "MiPikinini", desc: "Savings accounts designed for your children's future.", link: "/mipikinini" },
-  { icon: GraduationCap, title: "School Fee Loan", desc: "Spread tuition costs over fortnightly salary deductions — affordable education financing.", featured: true, link: "/school-fee-loan" },
+  { icon: GraduationCap, title: "School Fee Loan", desc: "Spread tuition costs over fortnightly salary deductions.", featured: true, link: "/school-fee-loan" },
   { icon: Sun, title: "Sola Pawa Loans", desc: "Go solar with affordable clean energy financing.", link: "/sola-pawa" },
   { icon: BadgeDollarSign, title: "Term Deposits", desc: "Earn competitive interest on your savings.", link: "/term-deposits" },
   { icon: Car, title: "Vehicle Loan", desc: "Drive your dream vehicle with flexible repayments.", link: "/vehicle-loan" },
@@ -27,34 +27,37 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, rotateX: 15 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
-    opacity: 1, y: 0, rotateX: 0,
+    opacity: 1, y: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 const Products = () => {
   return (
-    <section id="products" className="py-20 lg:py-28 bg-muted/50 relative overflow-hidden">
+    <section id="products" className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
       <TapaStripe className="absolute top-0 left-0 w-full h-8 text-primary" />
-      <KunduPattern className="absolute bottom-10 -left-8 w-24 h-36 text-primary/8 pointer-events-none hidden lg:block" />
-      <KunduPattern className="absolute top-20 -right-8 w-20 h-30 text-primary/6 pointer-events-none hidden lg:block rotate-12" />
+      <KunduPattern className="absolute bottom-10 -left-8 w-24 h-36 text-primary/[0.04] pointer-events-none hidden lg:block" />
+      <KunduPattern className="absolute top-20 -right-8 w-20 h-30 text-primary/[0.03] pointer-events-none hidden lg:block rotate-12" />
+
+      {/* Ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-primary/10 text-gold-dark font-semibold text-sm px-4 py-1.5 rounded-full mb-4">Our Products</span>
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
             Financial Solutions for Everyone
           </h2>
           <TribalDivider className="my-4" />
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-muted-foreground max-w-xl mx-auto text-lg">
             From savings and loans to mobile banking and insurance — we have the products to help you grow.
           </p>
         </motion.div>
@@ -65,55 +68,49 @@ const Products = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          style={{ perspective: 1000 }}
         >
-          {products.map((product, i) => {
-            const CardWrapper = product.link ? Link : 'div';
-            const linkProps = product.link ? { to: product.link } : {};
-            return (
-              <motion.div
-                key={product.title}
-                variants={cardVariants}
-                whileHover={{
-                  y: -8,
-                  rotateY: 3,
-                  boxShadow: "0 20px 40px -12px hsl(48 100% 50% / 0.15)",
-                  borderColor: "hsl(48 100% 50% / 0.4)",
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`group bg-card rounded-xl p-6 shadow-card border cursor-pointer relative overflow-hidden ${(product as any).featured ? 'border-gold/50 ring-1 ring-gold/20' : 'border-border/50'}`}
+          {products.map((product) => (
+            <motion.div key={product.title} variants={cardVariants}>
+              <Link
+                to={product.link}
+                className={`group block h-full bg-card/80 backdrop-blur-sm rounded-2xl p-6 border transition-all duration-500 relative overflow-hidden ${
+                  (product as any).featured
+                    ? "border-gold/40 ring-1 ring-gold/20 shadow-gold/10"
+                    : "border-border/30 hover:border-gold/30 shadow-card"
+                }`}
               >
-                <CardWrapper {...linkProps as any} className={product.link ? "block" : undefined}>
-                  {/* Tribal corner accent */}
-                  <svg className="absolute top-0 right-0 w-12 h-12 text-primary/10 pointer-events-none" viewBox="0 0 48 48" aria-hidden="true">
-                    <path d="M48 0 L48 48 L0 0 Z" fill="currentColor" />
-                    <path d="M48 8 L48 40 L8 0" stroke="currentColor" strokeWidth="0.5" fill="none" opacity="0.5" />
-                  </svg>
+                {/* Hover gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  <svg className="absolute bottom-2 right-2 w-10 h-10 text-primary/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" viewBox="0 0 40 40" aria-hidden="true">
-                    <path d="M20 2 L38 20 L20 38 L2 20 Z" fill="currentColor" />
-                  </svg>
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden">
+                  <div className="absolute top-0 right-0 w-[1px] h-12 bg-gradient-to-b from-primary/30 to-transparent transform origin-top-right group-hover:scale-y-100 scale-y-0 transition-transform duration-500" />
+                  <div className="absolute top-0 right-0 h-[1px] w-12 bg-gradient-to-l from-primary/30 to-transparent transform origin-top-right group-hover:scale-x-100 scale-x-0 transition-transform duration-500" />
+                </div>
 
+                <div className="relative z-10">
                   <motion.div
-                    className="w-12 h-12 rounded-lg bg-gradient-gold flex items-center justify-center mb-4"
-                    whileHover={{ rotate: 5, scale: 1.15 }}
+                    className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center mb-4 shadow-gold/20"
+                    whileHover={{ rotate: 5, scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <product.icon className="w-6 h-6 text-primary-foreground" />
                   </motion.div>
-                  <h3 className="font-bold text-foreground mb-2">{product.title}</h3>
-                  <p className="text-sm text-muted-foreground">{product.desc}</p>
 
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-gold"
-                    initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </CardWrapper>
-              </motion.div>
-            );
-          })}
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-bold text-foreground group-hover:text-gold-dark transition-colors duration-300">{product.title}</h3>
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-gold-dark group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{product.desc}</p>
+                </div>
+
+                {/* Bottom progress bar on hover */}
+                <div className="absolute bottom-0 left-0 right-0 h-[2px]">
+                  <div className="h-full bg-gradient-gold transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
