@@ -23,7 +23,7 @@ const ConvoCoreChat = () => {
     document.body.appendChild(container);
 
     window.VG_CONFIG = {
-      ID: "7qSQfsz8cGkOxDiXjKuC",
+      ID: "WfbSbIyvFQEt9byqnsuY",
       region: "na",
       render: "bottom-right",
       stylesheets: [
